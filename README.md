@@ -279,11 +279,8 @@ This project provided practical experience in:
 
 ## 👩‍💻 Author
 
-* **Prathibha**
-* **Swathi**
-
-GitHub: **[Prathibha2306](https://github.com/Prathibha2306/)**
-GitHub: **[Swathisnk](https://github.com/Swathisnk/)**
+* **Prathibha** - **[Prathibha2306](https://github.com/Prathibha2306/)**
+* **Swathi** - **[Swathisnk](https://github.com/Swathisnk/)**
 
 ## 📜 License
 
