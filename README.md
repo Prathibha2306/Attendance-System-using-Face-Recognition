@@ -281,8 +281,6 @@ This project provided practical experience in:
 
 * **Prathibha**
 * **Swathi**
-Computer Science and Engineering
-Sahyadri College of Engineering & Management, Mangaluru
 
 GitHub: **[Prathibha2306](https://github.com/Prathibha2306/)**
 GitHub: **[Swathisnk](https://github.com/Swathisnk/)**
