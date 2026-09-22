@@ -1,105 +1,291 @@
 # Smart Attendance System Using Face Recognition
 
-<p align="center">
-  <img src="https://github.com/sanjay-munde/Smart-Attendance-System-Using-Face-Recognition/blob/main/Images_GUI/Fingerprint-GIF-by-Daniel-Zender.gif" alt="Logo" width="300">
-</p>
+An intelligent desktop-based attendance management system that automates student attendance using **facial recognition**. The system combines face detection, facial recognition, student management, attendance tracking, database integration, and model evaluation in a user-friendly interface.
 
-The **Smart Attendance System Using Face Recognition** is an innovative project designed to streamline and automate attendance management in various settings, including educational institutions, corporate offices, and events. This system leverages cutting-edge facial recognition technology to accurately identify and record individuals' attendance.
+## 📌 Overview
 
-Traditionally, attendance management has been a manual and time-consuming task, involving physical sign-ins or RFID card scans. This smart attendance system revolutionizes the process by employing sophisticated facial recognition algorithms to instantly recognize and verify the identity of individuals as they enter a designated area.
+The **Smart Attendance System** is designed to reduce manual attendance work and improve the efficiency of attendance management. The system captures student faces through a webcam, identifies registered students, and records their attendance with the date and time.
 
-## Demo
+The project initially uses traditional computer vision techniques such as **Haar Cascade face detection and LBPH face recognition**, with **FaceNet-based deep learning evaluation** included to explore improved recognition performance.
 
-See the system in action:
+## ✨ Features
 
-<p align="center">
-  <img src="https://github.com/sanjay-munde/Smart-Attendance-System-Using-Face-Recognition/blob/main/Images_GUI/Attendance%20gif.gif" alt="Attendance Demo" width="600">
-</p>
+* 🔐 Administrator login
+* 👨‍🎓 Student registration and management
+* 📷 Real-time face detection using webcam
+* 🧠 Face recognition using LBPH
+* 🤖 FaceNet-based recognition evaluation
+* 📝 Automatic attendance recording
+* ⏱️ Date and time-based attendance tracking
+* 🚫 Duplicate attendance prevention
+* 🗄️ MySQL database integration
+* 📊 Attendance report generation
+* 📄 CSV-based attendance export
+* 🔍 Model performance evaluation
+* 📈 Confusion matrix and evaluation metrics
+* ⚠️ Camera and database error handling
+* 🖥️ Windows desktop application
 
-## Features
+## 🛠️ Technologies Used
 
-### ▷ Project Features:
+| Category                | Technologies        |
+| ----------------------- | ------------------- |
+| Programming Language    | Python              |
+| GUI                     | Tkinter             |
+| Computer Vision         | OpenCV              |
+| Face Detection          | Haar Cascade        |
+| Face Recognition        | LBPH, FaceNet       |
+| Database                | MySQL               |
+| Data Processing         | NumPy, Pandas       |
+| Model Evaluation        | Scikit-learn        |
+| Visualization           | Matplotlib, Seaborn |
+| Development Environment | VS Code             |
+| Version Control         | Git & GitHub        |
 
-- **Real-time Face Detection:** The system provides real-time face detection capabilities, ensuring accurate identification.
+## 🏗️ System Modules
 
-- **Secure Login System:** A secure login system with username and password authentication to protect sensitive data.
+The application consists of six major modules:
 
-- **Home Page:** The user-friendly home page offers multiple functionalities:
+1. **Student Management** – Add, update, delete, and manage student records.
+2. **Face Data Collection** – Capture student facial images through a webcam.
+3. **Face Recognition** – Detect and identify registered students.
+4. **Attendance Management** – Record attendance with date and time.
+5. **Model Training & Evaluation** – Train the recognition model and evaluate its performance.
+6. **Reports** – View and export attendance information.
 
-  - i) **Student Management System:** Allows you to save, capture photos, update, delete, and clear student records.
+## 🔄 System Workflow
 
-  - ii) **Train Photo Samples:** Enables the training of photo samples for facial recognition.
-
-  - iii) **Take Attendance with Face Detection:** Effortlessly take attendance using face detection technology.
-
-  - iv) **Attendance Report Generation:** Generate attendance reports in both Excel files and MySQL databases.
-
-  - v) **Exit:** Gracefully exit the application.
-
-### ▷ Algorithms Used:
-
-- **Haarcascade OpenCV (Object Detection):** Used for object detection, particularly for detecting faces.
-
-- **FaceNet CNN embeddings, via `deepface` (Face Recognition):** A pretrained convolutional neural network converts each detected face into a 128-dimensional embedding vector. Identification is a nearest-neighbour lookup by cosine similarity against one stored embedding per enrolled student, rather than the classical LBPH classifier used in earlier versions of this project. See `train.py` and `face_recognition.py` for details, and `DEEP_LEARNING_NOTES.md` for the reasoning behind the change.
-
-## Deployment
-
-Follow these steps to set up and deploy the Smart Attendance System Using Face Recognition project on your local machine:
-
-### Prerequisites
-
-Make sure you have the following prerequisites installed on your system:
-
-- Python 3.x (Recommended: Python 3.7 or higher)
-- `pip` package manager
-
-### Clone the Repository
-
-First, clone this repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/sanjay-munde/Smart-Attendance-System-Using-Face-Recognition.git
+```text
+Administrator Login
+        ↓
+Student Registration
+        ↓
+Capture Face Images
+        ↓
+Train Recognition Model
+        ↓
+Start Face Recognition
+        ↓
+Identify Student
+        ↓
+Check Duplicate Attendance
+        ↓
+Record Attendance
+        ↓
+Store in MySQL Database
+        ↓
+Generate Attendance Report
 ```
 
-### Install Dependencies
+## 🧠 Face Recognition Approach
 
-Navigate to the project directory:
+### LBPH
 
-```bash
-cd Smart-Attendance-System-Using-Face-Recognition
+The primary recognition system uses **Local Binary Pattern Histogram (LBPH)**. It is suitable for a lightweight CPU-based attendance application and provides fast face recognition without requiring a GPU.
+
+### FaceNet Evaluation
+
+A FaceNet-based deep learning approach was also evaluated to investigate the use of deep facial embeddings.
+
+A FaceNet forward pass takes approximately **0.2 seconds on the CPU test hardware**. To maintain a responsive live video feed, recognition can be performed periodically rather than on every frame.
+
+This provides a practical trade-off between recognition performance and real-time responsiveness.
+
+## 📊 Model Evaluation
+
+The project includes an evaluation script:
+
+```text
+evaluate_model.py
 ```
 
-Install the required dependencies by running:
+The evaluation includes:
 
-```bash
-pip install -r requirements.txt
+* Accuracy
+* Precision
+* Recall
+* F1-score
+* Confusion matrix
+* Threshold sensitivity analysis
+
+Generated evaluation outputs include:
+
+```text
+confusion_matrix.png
+metrics_table.csv
+threshold_sensitivity.png
 ```
 
-This will install the necessary packages: OpenCV, NumPy, and opencv-contrib-python.
+## 🗄️ Database
 
-### Start the Server
+The system uses **MySQL** for storing student and attendance information.
 
-Run the following command to start the server for the attendance system:
+Typical student information includes:
 
-```bash
-python login.py
+```text
+Student ID
+Roll Number
+Name
+Department
 ```
 
-The server will begin running, and you will see output indicating that it's up and running. This will usually include information about the server's IP address and port number.
+Attendance records include:
 
+```text
+Student ID
+Name
+Date
+Time
+Subject
+```
 
-### Usage
+> **Note:** Database credentials should be stored securely using environment variables or a configuration file when deploying the system in a production environment.
 
-1. Log in using the provided secure login system with your username and password.
-2. Utilize the various functionalities available on the home page:
-   - Manage student records (save, capture photos, update, delete, clear).
-   - Train photo samples for facial recognition.
-   - Take attendance using face detection.
-   - Generate attendance reports in Excel files and MySQL databases.
-   - Gracefully exit the application.
+## 💻 Installation
 
-### Database Setup
+### 1. Clone the repository
 
-The project uses MySQL for database management. Refer to the [MySQL documentation](https://dev.mysql.com/doc/) for instructions on setting up and configuring MySQL on your system.
+```bash
+git clone https://github.com/Prathibha2306/Attendance-System-using-Face-Recognition.git
+```
 
-Feel free to reach out if you encounter any issues or require further assistance with deploying the system.
+### 2. Navigate to the project
+
+```bash
+cd Attendance-System-using-Face-Recognition
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the virtual environment on Windows
+
+```powershell
+venv\Scripts\activate
+```
+
+### 5. Install dependencies
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+## ⚙️ Configuration
+
+Before running the application:
+
+1. Install **MySQL Server**.
+2. Create the required database.
+3. Create the required tables.
+4. Configure the database connection in the application.
+5. Connect a working webcam.
+6. Ensure the required Haar Cascade file is available.
+
+For security, avoid committing database passwords or other credentials to GitHub.
+
+## ▶️ Running the Application
+
+After activating the virtual environment and configuring MySQL, run:
+
+```powershell
+python main.py
+```
+
+For model evaluation:
+
+```powershell
+python evaluate_model.py
+```
+
+## 📁 Project Structure
+
+```text
+Attendance-System-using-Face-Recognition/
+│
+├── main.py
+├── login.py
+├── register.py
+├── student.py
+├── attendance.py
+├── train.py
+├── face_recognition.py
+├── databaseTest.py
+├── evaluate_model.py
+│
+├── requirements.txt
+├── README.md
+├── DEEP_LEARNING_NOTES.md
+│
+├── haarcascade_frontalface_default.xml
+│
+├── confusion_matrix.png
+├── threshold_sensitivity.png
+├── metrics_table.csv
+│
+└── .gitignore
+```
+
+## 🔒 Privacy and Security
+
+This project processes facial data for attendance identification. The repository does **not** include personal face images, generated facial embeddings, or attendance records.
+
+For real-world deployment, additional security and privacy measures should be implemented, including:
+
+* Secure credential management
+* Encryption of sensitive data
+* Access control
+* Secure storage of biometric data
+* Data retention policies
+* User consent and privacy compliance
+
+## ⚡ Requirements
+
+* Windows OS
+* Python 3.x
+* Webcam
+* MySQL Server
+* Minimum 4 GB RAM recommended
+* CPU-based execution supported
+* No dedicated GPU required for the basic attendance system
+
+## 🚀 Future Enhancements
+
+* FaceNet/ArcFace-based recognition as the primary model
+* Liveness detection to prevent photo-based spoofing
+* Multi-camera support
+* Mobile application for administrators
+* Web-based attendance dashboard
+* Cloud database integration
+* Advanced attendance analytics
+* Secure environment-based configuration
+* Improved biometric privacy and encryption
+
+## 🎯 Learning Outcomes
+
+This project provided practical experience in:
+
+* Computer vision
+* Facial recognition
+* Deep learning model evaluation
+* Python application development
+* Tkinter GUI development
+* MySQL database integration
+* Machine learning performance evaluation
+* Git and GitHub
+* Software modularity and maintainability
+
+## 👩‍💻 Author
+
+**Prathibha Naik**
+
+Computer Science and Engineering
+Sahyadri College of Engineering & Management, Mangaluru
+
+GitHub: **Prathibha2306**
+
+## 📜 License
+
+This project is developed for **academic and educational purposes**.
