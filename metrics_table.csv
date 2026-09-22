@@ -1,0 +1,5 @@
+Metric,Formula,Measured Result
+Accuracy,(TP+TN)/Total Trials,0.489
+Precision,TP/(TP+FP),0.688
+Recall,TP/(TP+FN),0.629
+False Acceptance Rate,FP/(FP+TN),1.000

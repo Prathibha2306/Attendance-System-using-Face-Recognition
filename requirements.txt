@@ -1,0 +1,19 @@
+opencv-python<5
+numpy
+pillow
+mysql-connector-python
+tkcalendar
+deepface
+tf-keras
+
+# NOTE on the pin above: OpenCV 5.0 (released 2026) removed
+# cv2.CascadeClassifier from the default package -- Haar cascade detection,
+# which this project's face detection is built on, was moved to a separate
+# opencv_contrib module. Without the "<5" pin, a fresh pip install grabs
+# 5.x and every screen that captures or recognises faces fails with:
+#   AttributeError: module 'cv2' has no attribute 'CascadeClassifier'
+# If you ever see that error, check what got installed:
+#   pip show opencv-python
+# and if it reports version 5.x, fix it with:
+#   pip uninstall opencv-python opencv-python-headless opencv-contrib-python opencv-contrib-python-headless -y
+#   pip install "opencv-python<5"

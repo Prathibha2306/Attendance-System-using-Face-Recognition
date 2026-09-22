@@ -1,0 +1,8 @@
+Faces_img/
+test_data/
+venv/
+__pycache__/
+Deep learning_21st September.csv
+attendance.csv
+pending_attendance.csv
+embeddings.pkl
