@@ -279,12 +279,13 @@ This project provided practical experience in:
 
 ## 👩‍💻 Author
 
-**Prathibha Naik**
-
+**Prathibha**
+**Swathi**
 Computer Science and Engineering
 Sahyadri College of Engineering & Management, Mangaluru
 
 GitHub: **Prathibha2306**
+GitHub: **Swathisnk**
 
 ## 📜 License
 
